@@ -8,7 +8,8 @@ import ok
 import sys
 
 file_path = "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/impl_1/decode.bit"
-
+M = 300        # number of pipeout data; each is 16 bits
+N = 800        # number of counter samples; each is 6 bits
 
 class Counter:
     def _init_(self):
@@ -47,7 +48,7 @@ class Counter:
         return(True)
     
     # Retrieve value on Wire endpoint with address 0x20, 0x21, 0x22
-    def get_counter_data(self, outfile):
+    def get_counter_data(self, buf, outfile):
         fileOut = open(outfile, "wb")
         # set wire in (addr, data, mask)
         # set reset to be high
@@ -61,12 +62,35 @@ class Counter:
             self.xem.UpdateTriggerOuts()
             if (self.xem.IsTriggered(0x60, 1)):
                 break
-        buf = bytearray(b'\x01') * 10 ** 3
+
         self.xem.ReadFromPipeOut(0xa0, buf)
         fileOut.write(buf)
-        print(buf[0])
-        print(buf[1])
-        print(buf[2])
+        fileOut.close()
+
+    # decode data from pipeout byte into 6 bit counter output
+    def decode_counter_data(self, data, outfile):
+        fileOut = open(outfile, "w")
+        data_6bitp = []
+        data_6bitn = []
+        i = 0
+        while i < (M * 2):
+            # print(i)
+            data1 = data[i] >> 2
+            data2 = ((data[i] & 0x3) << 4) | (data[i+1] >> 4)
+            data3 = ((data[i+1] & 0xf) << 2) | (data[i+2] >> 6)
+            data4 = data[i+2] & 0x3f
+            data_6bitp.append(data1)
+            data_6bitp.append(data3)
+            data_6bitn.append(data2)
+            data_6bitn.append(data4)
+            i = i + 3
+            # print(i)
+            # print('one')    
+        fileOut.write(str(data_6bitn))
+        fileOut.write(str('\n'))
+        fileOut.write(str(data_6bitp))
+        fileOut.close()
+
 
 print("decoding counter mux from DUT")
 
@@ -74,7 +98,10 @@ counter = Counter()
 if not counter.InitializeDevice():
     exit(-1)
 
-counter.get_counter_data('test.out')
+dataout = bytearray(b'\x01') * M * 2
+counter.get_counter_data(dataout, 'test.out')
+print(len(dataout))
+counter.decode_counter_data(dataout, 'counter_out.txt')
 
 
         

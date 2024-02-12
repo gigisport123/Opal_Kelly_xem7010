@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sun Feb 11 14:48:06 2024
+| Date         : Sun Feb 11 19:51:07 2024
 | Host         : pisterlabNIH running 64-bit major release  (build 9200)
 | Command      : report_methodology -file decode_methodology_drc_routed.rpt -pb decode_methodology_drc_routed.pb -rpx decode_methodology_drc_routed.rpx
 | Design       : decode
@@ -117,97 +117,97 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -3.119 ns between U_write/cnt_reg[8]/C (clocked by clk_2fs_clk_wiz_0) and ep60/eptrig_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.166 ns between U_write/cnt_reg[8]/C (clocked by clk_2fs_clk_wiz_0) and ep60/eptrig_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -3.209 ns between U_write/cnt_reg[8]/C (clocked by clk_2fs_clk_wiz_0) and ep60/ep_trigger0_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.202 ns between U_write/cnt_reg[8]/C (clocked by clk_2fs_clk_wiz_0) and ep60/ep_trigger0_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -4.157 ns between U_write/mem_reg[439]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.899 ns between U_write/mem_reg[1805]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -4.204 ns between U_write/mem_reg[5942]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.038 ns between U_write/mem_reg[1576]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -4.265 ns between U_write/mem_reg[356]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.119 ns between U_write/mem_reg[1380]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[4]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -4.364 ns between U_write/mem_reg[3360]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.149 ns between U_write/mem_reg[2983]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[7]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -4.439 ns between U_write/mem_reg[811]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.153 ns between U_write/mem_reg[3483]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[11]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -4.470 ns between U_write/mem_reg[2325]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.209 ns between U_write/mem_reg[3429]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[5]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -4.515 ns between U_write/mem_reg[2873]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.324 ns between U_write/mem_reg[3294]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -4.516 ns between U_write/mem_reg[2210]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.347 ns between U_write/mem_reg[2144]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[0]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -4.543 ns between U_write/mem_reg[1469]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[13]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.376 ns between U_write/mem_reg[2684]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -4.584 ns between U_write/mem_reg[3454]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[14]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.448 ns between U_write/mem_reg[2342]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[6]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -4.589 ns between U_write/mem_reg[3375]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.449 ns between U_write/mem_reg[4033]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -4.590 ns between U_write/mem_reg[4323]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.452 ns between U_write/mem_reg[1459]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[3]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -4.595 ns between U_write/mem_reg[2330]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.459 ns between U_write/mem_reg[521]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[9]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -4.674 ns between U_write/mem_reg[5740]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[12]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.569 ns between U_write/mem_reg[1010]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[2]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -4.723 ns between U_write/mem_reg[5713]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[1]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.621 ns between U_write/mem_reg[1322]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[10]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -4.769 ns between U_write/mem_reg[344]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[8]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.625 ns between U_write/mem_reg[655]/C (clocked by clk_2fs_clk_wiz_0) and U_read/data_out_reg[15]/D (clocked by mmcm0_clk0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -5.201 ns between U_read/cnt_reg[3]/C (clocked by mmcm0_clk0) and U_fsm/FSM_sequential_state_reg[0]/D (clocked by clk_2fs_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -4.954 ns between U_read/cnt_reg[3]/C (clocked by mmcm0_clk0) and U_fsm/FSM_sequential_state_reg[0]/D (clocked by clk_2fs_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

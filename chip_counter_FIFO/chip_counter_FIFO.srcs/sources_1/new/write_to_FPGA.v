@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module write_to_FPGA #(parameter N = 1000) (
+module write_to_FPGA #(parameter N = 800) (
     input wire write_en,
     input wire [5:0] data,
     input wire clk,
@@ -37,8 +37,7 @@ module write_to_FPGA #(parameter N = 1000) (
     end  
     
     always@(posedge clk) begin
-        if (!write_en) mem <= 0;
-        else mem <= mem_next;
+        mem <= mem_next;
     end
 
 endmodule

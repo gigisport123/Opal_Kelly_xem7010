@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module decode #(parameter DEPTH = 16, DATA_WIDTH = 6, N = 1000) (
+module decode #(parameter DEPTH = 16, DATA_WIDTH = 6, N = 800, M = 300) (
     input  wire [7:0]  hi_in,
 	output wire [1:0]  hi_out,
 	inout  wire [15:0] hi_inout,
@@ -61,7 +61,7 @@ module decode #(parameter DEPTH = 16, DATA_WIDTH = 6, N = 1000) (
      );
      
     wire write_en;
-    wire [6*1000-1:0] mem;
+    wire [6*N-1:0] mem;
     wire full;
     wire empty;
 //    wire read_en;
@@ -85,7 +85,7 @@ module decode #(parameter DEPTH = 16, DATA_WIDTH = 6, N = 1000) (
     .state (state)
     );
     
-    write_to_FPGA #(.N(1000))U_write(
+    write_to_FPGA #(.N(N))U_write(
     .write_en (write_en),
     .data (counter_buff) ,
     .clk (clk_2fs),
@@ -94,7 +94,8 @@ module decode #(parameter DEPTH = 16, DATA_WIDTH = 6, N = 1000) (
     .cnt (cnt_write)
     );   
     
-    read_to_PC #(.N(1000))U_read(
+    read_to_PC #(.N(N), .M(M)) U_read(
+    .rst (rst),
     .read_en (pipeO_read),
     .ti_clk(ti_clk),
 //    .clk (clk_2fs),

@@ -88,6 +88,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/clk_mux.v
   C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/fsm.v
   C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/okCoreHarness.v
   C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/okLibrary.v

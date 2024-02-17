@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Fri Feb  9 14:53:44 2024
+// Date        : Wed Feb 14 14:24:31 2024
 // Host        : pisterlabNIH running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
@@ -28,7 +28,7 @@ module clk_wiz_0
 
   wire clk_2fs;
   wire clk_fs;
-  (* IBUF_LOW_PWR *) wire clk_in1;
+  wire clk_in1;
   wire locked;
   wire reset;
 
@@ -74,12 +74,7 @@ module clk_wiz_0_clk_wiz
        (.I(clkfbout_clk_wiz_0),
         .O(clkfbout_buf_clk_wiz_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  (* CAPACITANCE = "DONT_CARE" *) 
-  (* IBUF_DELAY_VALUE = "0" *) 
-  (* IFD_DELAY_VALUE = "AUTO" *) 
-  IBUF #(
-    .IOSTANDARD("DEFAULT")) 
-    clkin1_ibufg
+  BUFG clkin1_bufg
        (.I(clk_in1),
         .O(clk_in1_clk_wiz_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
@@ -93,9 +88,9 @@ module clk_wiz_0_clk_wiz
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(42),
+    .CLKFBOUT_MULT(21),
     .CLKFBOUT_PHASE(0.000000),
-    .CLKIN1_PERIOD(50.000000),
+    .CLKIN1_PERIOD(5.000000),
     .CLKIN2_PERIOD(0.000000),
     .CLKOUT0_DIVIDE(42),
     .CLKOUT0_DUTY_CYCLE(0.500000),
@@ -115,8 +110,8 @@ module clk_wiz_0_clk_wiz
     .CLKOUT5_DIVIDE(1),
     .CLKOUT5_DUTY_CYCLE(0.500000),
     .CLKOUT5_PHASE(0.000000),
-    .COMPENSATION("ZHOLD"),
-    .DIVCLK_DIVIDE(1),
+    .COMPENSATION("BUF_IN"),
+    .DIVCLK_DIVIDE(5),
     .IS_CLKINSEL_INVERTED(1'b0),
     .IS_PWRDWN_INVERTED(1'b0),
     .IS_RST_INVERTED(1'b0),

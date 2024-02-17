@@ -74,7 +74,7 @@ class Counter:
         data_6bitn = []
         i = 0
         while i < (M * 2):
-            # print(i)
+        # while i < 1:
             data1 = data[i] >> 2
             data2 = ((data[i] & 0x3) << 4) | (data[i+1] >> 4)
             data3 = ((data[i+1] & 0xf) << 2) | (data[i+2] >> 6)
@@ -83,9 +83,12 @@ class Counter:
             data_6bitp.append(data3)
             data_6bitn.append(data2)
             data_6bitn.append(data4)
+            # print(data1)
+            # print(data2)
+            # print(data3)
+            # print(data4)
             i = i + 3
-            # print(i)
-            # print('one')    
+ 
         fileOut.write(str(data_6bitn))
         fileOut.write(str('\n'))
         fileOut.write(str(data_6bitp))
@@ -100,7 +103,7 @@ if not counter.InitializeDevice():
 
 dataout = bytearray(b'\x01') * M * 2
 counter.get_counter_data(dataout, 'test.out')
-print(len(dataout))
+
 counter.decode_counter_data(dataout, 'counter_out.txt')
 
 

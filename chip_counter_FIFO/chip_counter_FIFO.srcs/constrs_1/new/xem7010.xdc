@@ -115,8 +115,8 @@ set_property IOSTANDARD LVCMOS12 [get_ports {counter_in[*]}]
 #set_property PACKAGE_PIN F3 [get_ports {counter_N[5]}]
 #set_property IOSTANDARD LVCMOS12 [get_ports {counter_N[*]}]
 
-set_property PACKAGE_PIN L3 [get_ports {clk_in}]
-set_property IOSTANDARD LVCMOS12 [get_ports {clk_in}]
+#set_property PACKAGE_PIN L3 [get_ports {clk_in}]
+#set_property IOSTANDARD LVCMOS12 [get_ports {clk_in}]
 
 #set_property PACKAGE_PIN L5 [get_ports {clk_32MHz_check}]
 #set_property IOSTANDARD LVCMOS12 [get_ports {clk_32MHz_check}]
@@ -143,10 +143,10 @@ set_property IOSTANDARD LVCMOS12 [get_ports {led[*]}]
 
 
 # 200MHz clock
-#set_property IOSTANDARD LVDS_25 [get_ports {sys_clk_p}]
-#set_property IOSTANDARD LVDS_25 [get_ports {sys_clk_n}]
-#set_property PACKAGE_PIN K4 [get_ports {sys_clk_p}]
-#set_property PACKAGE_PIN J4 [get_ports {sys_clk_n}]
+set_property IOSTANDARD LVDS_25 [get_ports {sys_clk_p}]
+set_property IOSTANDARD LVDS_25 [get_ports {sys_clk_n}]
+set_property PACKAGE_PIN K4 [get_ports {sys_clk_p}]
+set_property PACKAGE_PIN J4 [get_ports {sys_clk_n}]
 
-#create_clock -name sys_clk -period 5 [get_ports sys_clk_p]
-#set_clock_groups -asynchronous -group [get_clocks {sys_clk}] -group [get_clocks {okHostClk mmcm0_clk0}]
+create_clock -name sys_clk -period 5 [get_ports sys_clk_p]
+set_clock_groups -asynchronous -group [get_clocks {sys_clk}] -group [get_clocks {okHostClk mmcm0_clk0}]

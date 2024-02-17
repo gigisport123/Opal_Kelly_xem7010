@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Fri Feb  9 14:53:44 2024
+-- Date        : Wed Feb 14 14:24:31 2024
 -- Host        : pisterlabNIH running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
@@ -39,13 +39,7 @@ architecture STRUCTURE of clk_wiz_0_clk_wiz is
   signal NLW_plle2_adv_inst_DO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute BOX_TYPE : string;
   attribute BOX_TYPE of clkf_buf : label is "PRIMITIVE";
-  attribute BOX_TYPE of clkin1_ibufg : label is "PRIMITIVE";
-  attribute CAPACITANCE : string;
-  attribute CAPACITANCE of clkin1_ibufg : label is "DONT_CARE";
-  attribute IBUF_DELAY_VALUE : string;
-  attribute IBUF_DELAY_VALUE of clkin1_ibufg : label is "0";
-  attribute IFD_DELAY_VALUE : string;
-  attribute IFD_DELAY_VALUE of clkin1_ibufg : label is "AUTO";
+  attribute BOX_TYPE of clkin1_bufg : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout1_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of clkout2_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of plle2_adv_inst : label is "PRIMITIVE";
@@ -55,11 +49,8 @@ clkf_buf: unisim.vcomponents.BUFG
       I => clkfbout_clk_wiz_0,
       O => clkfbout_buf_clk_wiz_0
     );
-clkin1_ibufg: unisim.vcomponents.IBUF
-    generic map(
-      IOSTANDARD => "DEFAULT"
-    )
-        port map (
+clkin1_bufg: unisim.vcomponents.BUFG
+     port map (
       I => clk_in1,
       O => clk_in1_clk_wiz_0
     );
@@ -76,9 +67,9 @@ clkout2_buf: unisim.vcomponents.BUFG
 plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT => 42,
+      CLKFBOUT_MULT => 21,
       CLKFBOUT_PHASE => 0.000000,
-      CLKIN1_PERIOD => 50.000000,
+      CLKIN1_PERIOD => 5.000000,
       CLKIN2_PERIOD => 0.000000,
       CLKOUT0_DIVIDE => 42,
       CLKOUT0_DUTY_CYCLE => 0.500000,
@@ -98,8 +89,8 @@ plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
       CLKOUT5_DIVIDE => 1,
       CLKOUT5_DUTY_CYCLE => 0.500000,
       CLKOUT5_PHASE => 0.000000,
-      COMPENSATION => "ZHOLD",
-      DIVCLK_DIVIDE => 1,
+      COMPENSATION => "BUF_IN",
+      DIVCLK_DIVIDE => 5,
       IS_CLKINSEL_INVERTED => '0',
       IS_PWRDWN_INVERTED => '0',
       IS_RST_INVERTED => '0',

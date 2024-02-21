@@ -14,8 +14,9 @@ Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_bhv_ver_a...
 Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_CONV_VER(...
 Compiling module fifo_generator_v13_2_9.fifo_generator_vlog_beh(C_DATA_C...
 Compiling module xil_defaultlib.xil_fifo_w48_d63
-Compiling module xil_defaultlib.fsm
+Compiling module xil_defaultlib.DUT_to_FIFO_fsm
 Compiling module xil_defaultlib.DUT_to_FIFO
+Compiling module xil_defaultlib.fifo_to_PC_fsm
 Compiling module xil_defaultlib.FIFO_to_PC
 Compiling module xil_defaultlib.FIFO_top
 Compiling module xil_defaultlib.FIFO_top_tb

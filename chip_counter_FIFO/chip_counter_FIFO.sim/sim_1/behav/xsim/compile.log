@@ -2,11 +2,13 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip
 INFO: [VRFC 10-311] analyzing module xil_fifo_w48_d63
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/DUT_to_FIFO.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module DUT_to_FIFO
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/DUT_to_FIFO_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DUT_to_FIFO_fsm
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_to_PC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module FIFO_to_PC
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_top.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module FIFO_top
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/fsm.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module fsm
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/fifo_to_PC_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_to_PC_fsm
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sim_1/new/FIFO_top_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module FIFO_top_tb

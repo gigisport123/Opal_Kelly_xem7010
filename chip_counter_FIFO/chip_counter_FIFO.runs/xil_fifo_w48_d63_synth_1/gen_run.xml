@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="xil_fifo_w48_d63_synth_1" LaunchPart="xc7a50tfgg484-1" LaunchTime="1708212964">
+  <File Type="PA-TCL" Name="xil_fifo_w48_d63.tcl"/>
+  <File Type="REPORTS-TCL" Name="xil_fifo_w48_d63_reports.tcl"/>
+  <File Type="RDS-RDS" Name="xil_fifo_w48_d63.vds"/>
+  <File Type="RDS-UTIL" Name="xil_fifo_w48_d63_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="xil_fifo_w48_d63_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="xil_fifo_w48_d63.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xil_fifo_w48_d63" RelGenDir="$PGENDIR/xil_fifo_w48_d63">
+    <File Path="$PSRCDIR/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="xil_fifo_w48_d63"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xil_fifo_w48_d63" RelGenDir="$PGENDIR/xil_fifo_w48_d63">
+    <File Path="$PSRCDIR/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="xil_fifo_w48_d63"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/decode.dcp">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../chip_counter/chip_counter.srcs/utils_1/imports/synth_1/decode.dcp"/>
+        <Attr Name="ImportTime" Val="1707088754"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

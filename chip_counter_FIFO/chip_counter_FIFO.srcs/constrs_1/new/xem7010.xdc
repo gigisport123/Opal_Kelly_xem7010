@@ -90,13 +90,13 @@ set_output_delay -add_delay -clock [get_clocks {okHostClk}]  8.900 [get_ports {h
 set_output_delay -add_delay -clock [get_clocks {okHostClk}]  9.200 [get_ports {hi_inout[*]}]
 
 # counter #####################################################################
-set_property PACKAGE_PIN P4 [get_ports {counter_in[0]}]
-set_property PACKAGE_PIN P1 [get_ports {counter_in[1]}]
-set_property PACKAGE_PIN P6 [get_ports {counter_in[2]}]
-set_property PACKAGE_PIN P2 [get_ports {counter_in[3]}]
-set_property PACKAGE_PIN N5 [get_ports {counter_in[4]}]
-set_property PACKAGE_PIN N2 [get_ports {counter_in[5]}]
-set_property IOSTANDARD LVCMOS12 [get_ports {counter_in[*]}]
+set_property PACKAGE_PIN P4 [get_ports {DUT_data_in[0]}]    # N0
+set_property PACKAGE_PIN P1 [get_ports {DUT_data_in[1]}]    # N1
+set_property PACKAGE_PIN P6 [get_ports {DUT_data_in[2]}]    # N2
+set_property PACKAGE_PIN P2 [get_ports {DUT_data_in[3]}]    # P0
+set_property PACKAGE_PIN N5 [get_ports {DUT_data_in[4]}]    # P1
+set_property PACKAGE_PIN N2 [get_ports {DUT_data_in[5]}]    # counterP2
+set_property IOSTANDARD LVCMOS12 [get_ports {DUT_data_in[*]}]
 
 
 #set_property PACKAGE_PIN K1 [get_ports {counter_P[0]}]
@@ -131,15 +131,15 @@ set_property PACKAGE_PIN J6 [get_ports {clk_2fs}]
 set_property IOSTANDARD LVCMOS12 [get_ports {clk_2fs}]
 
 # LEDs #####################################################################
-set_property PACKAGE_PIN N13 [get_ports {led[0]}]
-set_property PACKAGE_PIN N14 [get_ports {led[1]}]
-set_property PACKAGE_PIN P15 [get_ports {led[2]}]
-set_property PACKAGE_PIN P16 [get_ports {led[3]}]
-set_property PACKAGE_PIN N17 [get_ports {led[4]}]
-set_property PACKAGE_PIN P17 [get_ports {led[5]}]
-set_property PACKAGE_PIN R16 [get_ports {led[6]}]
-set_property PACKAGE_PIN R17 [get_ports {led[7]}]
-set_property IOSTANDARD LVCMOS12 [get_ports {led[*]}]
+#set_property PACKAGE_PIN N13 [get_ports {led[0]}]
+#set_property PACKAGE_PIN N14 [get_ports {led[1]}]
+#set_property PACKAGE_PIN P15 [get_ports {led[2]}]
+#set_property PACKAGE_PIN P16 [get_ports {led[3]}]
+#set_property PACKAGE_PIN N17 [get_ports {led[4]}]
+#set_property PACKAGE_PIN P17 [get_ports {led[5]}]
+#set_property PACKAGE_PIN R16 [get_ports {led[6]}]
+#set_property PACKAGE_PIN R17 [get_ports {led[7]}]
+#set_property IOSTANDARD LVCMOS12 [get_ports {led[*]}]
 
 
 # 200MHz clock

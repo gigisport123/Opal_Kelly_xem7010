@@ -8,7 +8,7 @@
 
 module FIFO_to_PC (
     input wire rst,
-    input wire enable,
+//    input wire enable,
     input wire read_en,
     input wire ti_clk,
     input wire [47:0] data_in,
@@ -40,7 +40,9 @@ module FIFO_to_PC (
     
     always@(posedge ti_clk or posedge rst) begin
         if (rst) cnt <= 3;
-        else if (enable && read_en) cnt <= cnt_next;
+        else if (read_en) cnt <= cnt_next;
+
+//        else if (enable && read_en) cnt <= cnt_next;
         else cnt <= cnt;
     end
     

@@ -23,17 +23,19 @@ module fsm(
     );
     
     reg [1:0] state_next;
-    reg empty_buff;
+//    reg empty_buff;
     
-    always@(posedge clk) begin
-        empty_buff <= empty;
-    end
+//    always@(posedge clk) begin
+//        empty_buff <= empty;
+//    end
     
     always@* begin
         case (state)
             `RESET: state_next = (full) ? `RESET : `WRITE_to_FPGA;
             `WRITE_to_FPGA: state_next = (full) ? `READ_to_PC : `WRITE_to_FPGA;
-            `READ_to_PC:    state_next = (empty_buff) ? `STOP : `READ_to_PC;
+            `READ_to_PC:    state_next = (empty) ? `STOP : `READ_to_PC;
+
+//            `READ_to_PC:    state_next = (empty_buff) ? `STOP : `READ_to_PC;
             `STOP:          state_next = `STOP;
         endcase
     end         

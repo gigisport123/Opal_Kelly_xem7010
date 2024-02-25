@@ -20,9 +20,16 @@ module TOP(
 	input wire sys_clk_p,
 	input wire sys_clk_n,
 	
+	// external clock input
+	input wire clk_in,
+	
 	// dubeg generated clock
 	output wire clk_fs,
-	output wire clk_2fs
+	output wire clk_2fs,
+	output wire clk_2fs_noshift,
+	
+	output wire clk_ext_2fs,
+	output wire clk_ext_2fs_shifted
     );
    
     wire rst;                    // PC generated 
@@ -36,6 +43,13 @@ module TOP(
 //    wire clk_2fs;               // 2fs; generated from clk wizard
     wire clk_locked;            // unused clk wizard flag
 
+    wire clk_in_buf;           // buffered input external clock
+    
+    wire clk_locked_ext;
+    
+    // buffered counter input
+    wire [5:0] DUT_data_in_buf; // buffered DUT inputs
+    
     
     // Opal Kelly Module Interface Connections
     wire        ti_clk;
@@ -54,7 +68,7 @@ module TOP(
         .rst (rst),
         .clk_2fs (clk_2fs),
         .ti_clk (ti_clk),
-        .DUT_data_in (DUT_data_in),
+        .DUT_data_in (DUT_data_in_buf),
         .PC_read_en (PC_read_en),
         .pipe_data_out (pipe_data_out),
 //        .state (state),
@@ -62,6 +76,29 @@ module TOP(
         .PC_trigger (PC_trigger)
     );
 
+    // external counter input buffers
+    IBUF data_in0(.O(DUT_data_in_buf[0]), .I(DUT_data_in[0]));
+    IBUF data_in1(.O(DUT_data_in_buf[1]), .I(DUT_data_in[1]));
+    IBUF data_in2(.O(DUT_data_in_buf[2]), .I(DUT_data_in[2]));
+    IBUF data_in3(.O(DUT_data_in_buf[3]), .I(DUT_data_in[3]));
+    IBUF data_in4(.O(DUT_data_in_buf[4]), .I(DUT_data_in[4]));
+    IBUF data_in5(.O(DUT_data_in_buf[5]), .I(DUT_data_in[5]));
+
+    // external clk buffer
+    IBUF ext_clk(.O(clk_in_buf), .I(clk_in));
+    
+    clk_wiz_1 U_clk_ext (
+    // Clock out ports
+    .clk_ext_2fs_shifted (clk_ext_2fs_shifted),
+    .clk_ext_2fs (clk_ext_2fs),
+    // Status and control signals
+    .reset (rst),
+    .locked (clk_locked_ext),
+    // Clock in ports
+    .clk_in1 (clk_in_buf)
+ );
+    
+    
     // clk management
     // clk buffer
     IBUFGDS osc_clk(.O(sys_clk), .I(sys_clk_p), .IB(sys_clk_n));
@@ -70,6 +107,7 @@ module TOP(
         // Clock out ports
         .clk_fs (clk_fs),
         .clk_2fs (clk_2fs),
+        .clk_2fs_noshift (clk_2fs_noshift),
         // Status and control signals
         .reset(rst),
         .locked(clk_locked),

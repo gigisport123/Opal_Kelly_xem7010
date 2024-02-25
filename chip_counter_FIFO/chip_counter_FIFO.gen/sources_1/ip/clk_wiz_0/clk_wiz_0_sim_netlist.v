@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed Feb 14 14:24:31 2024
+// Date        : Wed Feb 21 15:43:02 2024
 // Host        : pisterlabNIH running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
@@ -17,16 +17,19 @@
 module clk_wiz_0
    (clk_fs,
     clk_2fs,
+    clk_2fs_noshift,
     reset,
     locked,
     clk_in1);
   output clk_fs;
   output clk_2fs;
+  output clk_2fs_noshift;
   input reset;
   output locked;
   input clk_in1;
 
   wire clk_2fs;
+  wire clk_2fs_noshift;
   wire clk_fs;
   wire clk_in1;
   wire locked;
@@ -34,6 +37,7 @@ module clk_wiz_0
 
   clk_wiz_0_clk_wiz inst
        (.clk_2fs(clk_2fs),
+        .clk_2fs_noshift(clk_2fs_noshift),
         .clk_fs(clk_fs),
         .clk_in1(clk_in1),
         .locked(locked),
@@ -43,17 +47,21 @@ endmodule
 module clk_wiz_0_clk_wiz
    (clk_fs,
     clk_2fs,
+    clk_2fs_noshift,
     reset,
     locked,
     clk_in1);
   output clk_fs;
   output clk_2fs;
+  output clk_2fs_noshift;
   input reset;
   output locked;
   input clk_in1;
 
   wire clk_2fs;
   wire clk_2fs_clk_wiz_0;
+  wire clk_2fs_noshift;
+  wire clk_2fs_noshift_clk_wiz_0;
   wire clk_fs;
   wire clk_fs_clk_wiz_0;
   wire clk_in1;
@@ -62,7 +70,6 @@ module clk_wiz_0_clk_wiz
   wire clkfbout_clk_wiz_0;
   wire locked;
   wire reset;
-  wire NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED;
   wire NLW_plle2_adv_inst_CLKOUT5_UNCONNECTED;
@@ -86,19 +93,23 @@ module clk_wiz_0_clk_wiz
        (.I(clk_2fs_clk_wiz_0),
         .O(clk_2fs));
   (* BOX_TYPE = "PRIMITIVE" *) 
+  BUFG clkout3_buf
+       (.I(clk_2fs_noshift_clk_wiz_0),
+        .O(clk_2fs_noshift));
+  (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(21),
+    .CLKFBOUT_MULT(41),
     .CLKFBOUT_PHASE(0.000000),
     .CLKIN1_PERIOD(5.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE(42),
+    .CLKOUT0_DIVIDE(82),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
-    .CLKOUT1_DIVIDE(21),
+    .CLKOUT1_DIVIDE(41),
     .CLKOUT1_DUTY_CYCLE(0.500000),
-    .CLKOUT1_PHASE(0.000000),
-    .CLKOUT2_DIVIDE(1),
+    .CLKOUT1_PHASE(90.000000),
+    .CLKOUT2_DIVIDE(41),
     .CLKOUT2_DUTY_CYCLE(0.500000),
     .CLKOUT2_PHASE(0.000000),
     .CLKOUT3_DIVIDE(1),
@@ -111,7 +122,7 @@ module clk_wiz_0_clk_wiz
     .CLKOUT5_DUTY_CYCLE(0.500000),
     .CLKOUT5_PHASE(0.000000),
     .COMPENSATION("BUF_IN"),
-    .DIVCLK_DIVIDE(5),
+    .DIVCLK_DIVIDE(10),
     .IS_CLKINSEL_INVERTED(1'b0),
     .IS_PWRDWN_INVERTED(1'b0),
     .IS_RST_INVERTED(1'b0),
@@ -126,7 +137,7 @@ module clk_wiz_0_clk_wiz
         .CLKINSEL(1'b1),
         .CLKOUT0(clk_fs_clk_wiz_0),
         .CLKOUT1(clk_2fs_clk_wiz_0),
-        .CLKOUT2(NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED),
+        .CLKOUT2(clk_2fs_noshift_clk_wiz_0),
         .CLKOUT3(NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED),
         .CLKOUT4(NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED),
         .CLKOUT5(NLW_plle2_adv_inst_CLKOUT5_UNCONNECTED),

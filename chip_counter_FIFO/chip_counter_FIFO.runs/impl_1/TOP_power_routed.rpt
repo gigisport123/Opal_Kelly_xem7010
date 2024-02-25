@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Sun Feb 18 22:31:20 2024
+| Date             : Wed Feb 21 15:51:08 2024
 | Host             : pisterlabNIH running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_power_routed.rpt -pb TOP_power_summary_routed.pb -rpx TOP_power_routed.rpx
 | Design           : TOP
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.278        |
+| Total On-Chip Power (W)  | 0.351        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.209        |
+| Dynamic (W)              | 0.282        |
 | Device Static (W)        | 0.069        |
 | Effective TJA (C/W)      | 2.8          |
-| Max Ambient (C)          | 84.2         |
-| Junction Temperature (C) | 25.8         |
+| Max Ambient (C)          | 84.0         |
+| Junction Temperature (C) | 26.0         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,22 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.003 |        9 |       --- |             --- |
-| Slice Logic              |     0.002 |     1565 |       --- |             --- |
-|   LUT as Logic           |     0.002 |      589 |     32600 |            1.81 |
+| Clocks                   |     0.003 |       10 |       --- |             --- |
+| Slice Logic              |     0.002 |     1571 |       --- |             --- |
+|   LUT as Logic           |     0.002 |      590 |     32600 |            1.81 |
 |   LUT as Distributed RAM |    <0.001 |       32 |      9600 |            0.33 |
 |   Register               |    <0.001 |      691 |     65200 |            1.06 |
 |   CARRY4                 |    <0.001 |       30 |      8150 |            0.37 |
+|   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
 |   F7/F8 Muxes            |    <0.001 |        8 |     32600 |            0.02 |
-|   Others                 |     0.000 |       45 |       --- |             --- |
+|   Others                 |     0.000 |       47 |       --- |             --- |
 |   LUT as Shift Register  |     0.000 |        3 |      9600 |            0.03 |
-| Signals                  |     0.002 |     1320 |       --- |             --- |
+| Signals                  |     0.002 |     1332 |       --- |             --- |
 | Block RAM                |    <0.001 |        2 |        75 |            2.67 |
 | MMCM                     |     0.103 |        1 |         5 |           20.00 |
-| PLL                      |     0.096 |        1 |         5 |           20.00 |
-| I/O                      |     0.003 |       38 |       250 |           15.20 |
+| PLL                      |     0.169 |        2 |         5 |           40.00 |
+| I/O                      |     0.003 |       42 |       250 |           16.80 |
 | Static Power             |     0.069 |          |           |                 |
-| Total                    |     0.278 |          |           |                 |
+| Total                    |     0.351 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,8 +78,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.026 |       0.016 |      0.010 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.120 |       0.108 |      0.013 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.028 |       0.018 |      0.010 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.159 |       0.147 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -130,17 +131,18 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+--------------------+-----------------------------+-----------------+
-| Clock              | Domain                      | Constraint (ns) |
-+--------------------+-----------------------------+-----------------+
-| clk_2fs_clk_wiz_0  | CLK/inst/clk_2fs_clk_wiz_0  |            25.0 |
-| clk_fs_clk_wiz_0   | CLK/inst/clk_fs_clk_wiz_0   |            50.0 |
-| clkfbout_clk_wiz_0 | CLK/inst/clkfbout_clk_wiz_0 |            25.0 |
-| mmcm0_clk0         | okHI/mmcm0_clk0             |            20.8 |
-| mmcm0_clkfb        | okHI/mmcm0_clkfb            |            20.8 |
-| okHostClk          | hi_in[0]                    |            20.8 |
-| sys_clk            | sys_clk_p                   |             5.0 |
-+--------------------+-----------------------------+-----------------+
++---------------------------+------------------------------------+-----------------+
+| Clock                     | Domain                             | Constraint (ns) |
++---------------------------+------------------------------------+-----------------+
+| clk_2fs_clk_wiz_0         | CLK/inst/clk_2fs_clk_wiz_0         |            50.0 |
+| clk_2fs_noshift_clk_wiz_0 | CLK/inst/clk_2fs_noshift_clk_wiz_0 |            50.0 |
+| clk_fs_clk_wiz_0          | CLK/inst/clk_fs_clk_wiz_0          |           100.0 |
+| clkfbout_clk_wiz_0        | CLK/inst/clkfbout_clk_wiz_0        |            50.0 |
+| mmcm0_clk0                | okHI/mmcm0_clk0                    |            20.8 |
+| mmcm0_clkfb               | okHI/mmcm0_clkfb                   |            20.8 |
+| okHostClk                 | hi_in[0]                           |            20.8 |
+| sys_clk                   | sys_clk_p                          |             5.0 |
++---------------------------+------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -149,18 +151,17 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------+-----------+
-| Name         | Power (W) |
-+--------------+-----------+
-| TOP          |     0.209 |
-|   CLK        |     0.097 |
-|     inst     |     0.097 |
-|   U_FIFO_top |     0.001 |
-|     U_FIFO   |     0.001 |
-|       U0     |     0.001 |
-|   okHI       |     0.108 |
-|     core0    |     0.005 |
-|       core0  |     0.005 |
-+--------------+-----------+
++-------------+-----------+
+| Name        | Power (W) |
++-------------+-----------+
+| TOP         |     0.282 |
+|   CLK       |     0.093 |
+|     inst    |     0.093 |
+|   U_clk_ext |     0.077 |
+|     inst    |     0.077 |
+|   okHI      |     0.108 |
+|     core0   |     0.005 |
+|       core0 |     0.005 |
++-------------+-----------+
 
 

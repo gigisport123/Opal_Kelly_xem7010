@@ -3,8 +3,8 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sun Feb 18 22:29:21 2024
-# Process ID: 20440
+# Start of session at: Wed Feb 21 15:48:33 2024
+# Process ID: 27764
 # Current directory: C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1
 # Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
 # Log file: C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/TOP.vds
@@ -12,7 +12,7 @@
 # Running On: pisterlabNIH, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 14, Host memory: 34014 MB
 #-----------------------------------------------------------
 source TOP.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 469.625 ; gain = 183.426
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 469.270 ; gain = 182.805
 Command: read_checkpoint -auto_incremental -incremental C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/utils_1/imports/synth_1/decode.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/utils_1/imports/synth_1/decode.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,14 +25,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 34304
+INFO: [Synth 8-7075] Helper process launched with PID 18576
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1316.844 ; gain = 439.512
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1320.129 ; gain = 442.203
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'TOP' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/TOP.v:8]
 INFO: [Synth 8-6157] synthesizing module 'FIFO_top' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_top.v:13]
-INFO: [Synth 8-6157] synthesizing module 'xil_fifo_w48_d63' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-20440-pisterlabNIH/realtime/xil_fifo_w48_d63_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'xil_fifo_w48_d63' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-20440-pisterlabNIH/realtime/xil_fifo_w48_d63_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'xil_fifo_w48_d63' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/xil_fifo_w48_d63_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'xil_fifo_w48_d63' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/xil_fifo_w48_d63_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'DUT_to_FIFO_fsm' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/DUT_to_FIFO_fsm.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'DUT_to_FIFO_fsm' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/DUT_to_FIFO_fsm.v:12]
 INFO: [Synth 8-6157] synthesizing module 'DUT_to_FIFO' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/DUT_to_FIFO.v:8]
@@ -42,10 +42,14 @@ INFO: [Synth 8-6155] done synthesizing module 'fifo_to_PC_fsm' (0#1) [C:/Users/g
 INFO: [Synth 8-6157] synthesizing module 'FIFO_to_PC' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_to_PC.v:9]
 INFO: [Synth 8-6155] done synthesizing module 'FIFO_to_PC' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_to_PC.v:9]
 INFO: [Synth 8-6155] done synthesizing module 'FIFO_top' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/FIFO_top.v:13]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/clk_wiz_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/clk_wiz_1_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'IBUFGDS' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:74129]
 INFO: [Synth 8-6155] done synthesizing module 'IBUFGDS' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:74129]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-20440-pisterlabNIH/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-20440-pisterlabNIH/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/.Xil/Vivado-27764-pisterlabNIH/realtime/clk_wiz_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'okHost' [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/okLibrary.v:13]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197]
 INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197]
@@ -244,17 +248,13 @@ INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized21' (0#1) [C:/
 INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized22' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81503]
 INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized22' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81503]
 INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized12' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized12' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
-INFO: [Synth 8-6157] synthesizing module 'LUT6_2__parameterized13' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized13' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
-INFO: [Synth 8-6157] synthesizing module 'LUT6__parameterized23' [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81503]
 INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized12' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
+INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized13' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
 INFO: [Synth 8-6155] done synthesizing module 'LUT6__parameterized23' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81503]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized14' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
-INFO: [Synth 8-6155] done synthesizing module 'LUT6_2__parameterized15' (0#1) [C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:81549]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter N bound to: 2 - type: integer 
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/TOP.v:98]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/TOP.v:136]
 WARNING: [Synth 8-3848] Net hi_muxsel in module/entity TOP does not have driver. [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/new/TOP.v:16]
 WARNING: [Synth 8-7129] Port ok1[30] in module okPipeOut is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ok1[29] in module okPipeOut is either unconnected or has no load
@@ -358,18 +358,18 @@ WARNING: [Synth 8-7129] Port s_axi_awaddr[31] in module fifo_generator_v13_2_5 i
 WARNING: [Synth 8-7129] Port s_axi_awaddr[30] in module fifo_generator_v13_2_5 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1448.777 ; gain = 571.445
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1449.523 ; gain = 571.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.777 ; gain = 571.445
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1449.523 ; gain = 571.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.777 ; gain = 571.445
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1449.523 ; gain = 571.598
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1448.777 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1449.523 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 110 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'okHI/hi_in0_bufg' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -381,6 +381,8 @@ Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_
 Finished Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'CLK'
 Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63/xil_fifo_w48_d63_in_context.xdc] for cell 'U_FIFO_top/U_FIFO'
 Finished Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63/xil_fifo_w48_d63_in_context.xdc] for cell 'U_FIFO_top/U_FIFO'
+Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'U_clk_ext'
+Finished Parsing XDC File [c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'U_clk_ext'
 Parsing XDC File [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc]
 CRITICAL WARNING: [Netlist 29-154] Cannot set property 'CONFIG_VOLTAGE' because incorrect value '1.2' specified. Expecting type 'enum' with possible values of ',1.5,1.8,2.5,3.3'. [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:31]
 Resolution: Please check the value of the property and set to a correct value.
@@ -394,13 +396,13 @@ WARNING: [Vivado 12-4702] SLEW is not a supported property on input port(s). Set
 WARNING: [Vivado 12-4702] SLEW is not a supported property on input port(s). Setting is ignored. [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:49]
 WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'hi_in[0]' relative to clock 'okHostClk' defined on the same pin is not supported, ignoring it [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:84]
 WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'hi_in[0]' relative to clock 'okHostClk' defined on the same pin is not supported, ignoring it [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:85]
-INFO: [Timing 38-2] Deriving generated clocks [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:152]
+INFO: [Timing 38-2] Deriving generated clocks [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc:155]
 Finished Parsing XDC File [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/constrs_1/new/xem7010.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1478.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1552.035 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 82 instances were transformed.
   IBUFG => IBUF: 1 instance 
@@ -411,26 +413,27 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1478.898 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1552.035 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a50tfgg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for CLK. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for U_FIFO_top/U_FIFO. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for U_clk_ext. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'DUT_to_FIFO_fsm'
 ---------------------------------------------------------------------------------------------------
@@ -442,7 +445,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'DUT_t
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'DUT_to_FIFO_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -530,25 +533,25 @@ WARNING: [Synth 8-3332] Sequential element (ep_trigger0_reg[7]) is unused and wi
 WARNING: [Synth 8-3332] Sequential element (ep_trigger0_reg[8]) is unused and will be removed from module okTriggerOut.
 WARNING: [Synth 8-3332] Sequential element (ep_trigger0_reg[9]) is unused and will be removed from module okTriggerOut.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -566,37 +569,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -606,54 +609,55 @@ Report BlackBoxes:
 +------+-----------------+----------+
 |      |BlackBox name    |Instances |
 +------+-----------------+----------+
-|1     |clk_wiz_0        |         1|
-|2     |xil_fifo_w48_d63 |         1|
+|1     |clk_wiz_1        |         1|
+|2     |clk_wiz_0        |         1|
+|3     |xil_fifo_w48_d63 |         1|
 +------+-----------------+----------+
 
 Report Cell Usage: 
 +------+-----------------+------+
 |      |Cell             |Count |
 +------+-----------------+------+
-|1     |clk_wiz          |     1|
-|2     |xil_fifo_w48_d63 |     1|
-|3     |BUFG             |     2|
-|4     |CARRY4           |    26|
-|5     |DNA_PORT         |     1|
-|6     |LUT1             |    39|
-|7     |LUT2             |    48|
-|8     |LUT3             |    26|
-|9     |LUT4             |   136|
-|10    |LUT5             |    71|
-|11    |LUT6             |   312|
-|13    |MMCME2_BASE      |     1|
-|14    |RAM128X1S        |     8|
-|15    |RAM32M           |     4|
-|16    |RAMB18E1         |     2|
-|18    |FDCE             |   139|
-|19    |FDPE             |    29|
-|20    |FDRE             |   427|
-|21    |FDSE             |     4|
-|22    |IBUF             |    13|
-|23    |IBUFG            |     1|
-|24    |IBUFGDS          |     1|
-|25    |IOBUF            |    17|
-|26    |OBUF             |     4|
-|27    |OBUFT            |     1|
+|1     |clk_wiz          |     2|
+|3     |xil_fifo_w48_d63 |     1|
+|4     |BUFG             |     2|
+|5     |CARRY4           |    26|
+|6     |DNA_PORT         |     1|
+|7     |LUT1             |    39|
+|8     |LUT2             |    48|
+|9     |LUT3             |    26|
+|10    |LUT4             |   136|
+|11    |LUT5             |    71|
+|12    |LUT6             |   312|
+|14    |MMCME2_BASE      |     1|
+|15    |RAM128X1S        |     8|
+|16    |RAM32M           |     4|
+|17    |RAMB18E1         |     2|
+|19    |FDCE             |   139|
+|20    |FDPE             |    29|
+|21    |FDRE             |   427|
+|22    |FDSE             |     4|
+|23    |IBUF             |    14|
+|24    |IBUFG            |     1|
+|25    |IBUFGDS          |     1|
+|26    |IOBUF            |    17|
+|27    |OBUF             |     7|
+|28    |OBUFT            |     1|
 +------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1552.035 ; gain = 674.109
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 564 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1478.898 ; gain = 571.445
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1478.898 ; gain = 601.566
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:28 . Memory (MB): peak = 1552.035 ; gain = 571.598
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1552.035 ; gain = 674.109
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1478.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1552.035 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 110 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'okHI/hi_in0_bufg' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1478.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1552.035 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 82 instances were transformed.
   IBUFG => IBUF: 1 instance 
@@ -664,13 +668,13 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
 
-Synth Design complete | Checksum: 13936cf
+Synth Design complete | Checksum: 2269fddb
 INFO: [Common 17-83] Releasing license: Synthesis
 229 Infos, 194 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1478.898 ; gain = 997.043
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 1552.035 ; gain = 1069.395
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1478.898 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1552.035 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/synth_1/TOP.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Feb 18 22:30:03 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 21 15:49:19 2024...

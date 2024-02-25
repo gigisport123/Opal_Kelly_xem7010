@@ -52,8 +52,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// __clk_fs__20.00000______0.000______50.0______268.531____208.392
-// _clk_2fs__40.00000______0.000______50.0______235.834____208.392
+// __clk_fs__10.00000______0.000______50.0______431.198____313.282
+// _clk_2fs__20.00000_____90.000______50.0______385.358____313.282
+// clk_2fs_noshift__20.00000______0.000______50.0______385.358____313.282
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -71,6 +72,7 @@
     // Clock out ports
     .clk_fs(clk_fs),     // output clk_fs
     .clk_2fs(clk_2fs),     // output clk_2fs
+    .clk_2fs_noshift(clk_2fs_noshift),     // output clk_2fs_noshift
     // Status and control signals
     .reset(reset), // input reset
     .locked(locked),       // output locked

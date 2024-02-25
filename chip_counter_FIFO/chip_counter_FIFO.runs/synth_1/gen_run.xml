@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a50tfgg484-1" LaunchTime="1708324157" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/decode.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a50tfgg484-1" LaunchTime="1708559310" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/decode.dcp">
   <File Type="PA-TCL" Name="TOP.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="TOP_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="TOP_reports.tcl"/>
@@ -264,4 +264,5 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
   <BlockFileSet Type="BlockSrcs" Name="xil_fifo_w48_d63"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1"/>
 </GenRun>

@@ -6,6 +6,8 @@
 
 import ok
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
 
 file_path = "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/impl_1/TOP.bit"
 '''bit file generated from sample first; use to confirm that FrontPanel support is available.''' 
@@ -18,6 +20,9 @@ FIFO_depth = 64
 FIFO_width = 48 
 byte_num = int(FIFO_depth * FIFO_width / 8)  
 dataout = bytearray(b'\x01') * byte_num
+
+# 10MHz sampling clock for counter output
+fs = 10 * 10**6   
 
 class Counter:
     def _init_(self):
@@ -93,10 +98,10 @@ class Counter:
 
 
     # decode data from pipeout byte into 6 bit counter output
-    def decode_counter_data(self, data, outfile):
+    def decode_counter_data(self, data, data_6bitp, data_6bitn, outfile):
         fileOut = open(outfile, "w")
-        data_6bitp = []
-        data_6bitn = []
+        # data_6bitp = []
+        # data_6bitn = []
         # start decoding data from data[10]; 0~9 are extra datas of 0s
         # probably from bad verilog coding. can probably be fixed from FSM
         i = 10      
@@ -121,6 +126,68 @@ class Counter:
         fileOut.write(str(data_6bitp))
         fileOut.close()
 
+        figure, axis = plt.subplots(1, 2) 
+  
+        # t = range(1,100) * 1.0 / fs
+
+        # For n side
+        axis[0].plot(data_6bitn[0:100]) 
+        axis[0].set_title("n") 
+        axis[0].set_xlabel('sample #')
+        axis[0].set_ylabel('counter value')
+        
+        # For p side 
+        axis[1].plot(data_6bitp[0:100]) 
+        axis[1].set_title("p") 
+        axis[1].set_xlabel('sample #')
+        # axis[1].set_ylabel('counter value')
+
+
+        # plt.plot(data_6bitn, color='b', label='n')
+        # plt.plot(data_6bitp, color='g', label='p')
+        # plt.legend()
+        # plt.show()
+        plt.savefig("counter_out.png")
+
+    def counter_to_freq(self, data_6bitp, data_6bitn):
+        freq_n = []
+        freq_p = []
+        i = 1
+        while i < len(data_6bitn):
+            cnt_interval = data_6bitn[i] - data_6bitn[i-1]
+            if (cnt_interval < 0):
+                cnt_interval  = cnt_interval + 64
+            # period = Ts * 1.0 / cnt_interval
+            freq = fs * cnt_interval
+            freq_n.append(freq)
+
+            cnt_interval = data_6bitp[i] - data_6bitp[i-1]
+            if (cnt_interval < 0):
+                cnt_interval  = cnt_interval + 64
+            freq = fs * cnt_interval
+            freq_p.append(freq)
+
+            i = i + 1
+        
+        figure, axis = plt.subplots(1, 2) 
+    
+        t = np.arange(0,len(freq_n)) * 1.0 / fs
+
+        # For n side
+        axis[0].plot(t, freq_n) 
+        axis[0].set_title("n") 
+        axis[0].set_xlabel('time (s)')
+        axis[0].set_ylabel('osc freq (Hz)')
+        
+        # For p side 
+        axis[1].plot(t, freq_p) 
+        axis[1].set_title("p") 
+        axis[1].set_xlabel('time (s)')
+        # axis[1].set_ylabel('freq(Hz)')
+
+        # plt.show()
+        plt.savefig("freq.png")
+
 
 print("decoding counter mux from DUT")
 
@@ -131,7 +198,12 @@ if not counter.InitializeDevice():
 
 counter.get_counter_data(dataout, 'test.out')
 counter.flip_counter_data(dataout, 'flip.txt')
-counter.decode_counter_data(dataout, 'counter_out_test.txt')
 
+data_6bitp = []
+data_6bitn = []
+counter.decode_counter_data(dataout, data_6bitp, data_6bitn, 'counter_out_test.txt')
+# print(data_6bitn)
+# print(data_6bitp)
+counter.counter_to_freq(data_6bitp, data_6bitn)
 
         

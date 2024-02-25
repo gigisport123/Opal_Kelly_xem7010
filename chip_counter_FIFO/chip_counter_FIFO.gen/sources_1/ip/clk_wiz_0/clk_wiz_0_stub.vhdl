@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Wed Feb 14 14:24:31 2024
+-- Date        : Wed Feb 21 15:43:02 2024
 -- Host        : pisterlabNIH running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
@@ -17,6 +17,7 @@ entity clk_wiz_0 is
   Port ( 
     clk_fs : out STD_LOGIC;
     clk_2fs : out STD_LOGIC;
+    clk_2fs_noshift : out STD_LOGIC;
     reset : in STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
@@ -28,6 +29,6 @@ architecture stub of clk_wiz_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clk_fs,clk_2fs,reset,locked,clk_in1";
+attribute black_box_pad_pin of stub : architecture is "clk_fs,clk_2fs,clk_2fs_noshift,reset,locked,clk_in1";
 begin
 end;

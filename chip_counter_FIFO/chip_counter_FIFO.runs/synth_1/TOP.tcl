@@ -110,6 +110,11 @@ set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_ke
 set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63_clocks.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/xil_fifo_w48_d63/xil_fifo_w48_d63_ooc.xdc]
 
+read_ip -quiet c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_1/clk_wiz_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

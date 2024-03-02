@@ -8,7 +8,10 @@ import ok
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
+import datetime
 
+# time stamp for dumped files
+time_now  = datetime.datetime.now().strftime('%m_%d_%Y_%H_%M_%S') 
 file_path = "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/impl_1/TOP.bit"
 '''bit file generated from sample first; use to confirm that FrontPanel support is available.''' 
 # file_path = "C:/Users/gigis/FPGA_code/sample_first/sample_first.runs/impl_1/First.bit"    
@@ -147,11 +150,14 @@ class Counter:
         # plt.plot(data_6bitp, color='g', label='p')
         # plt.legend()
         # plt.show()
-        plt.savefig("counter_out.png")
+        plt.savefig("counter_out_"+str(time_now)+".png")
 
-    def counter_to_freq(self, data_6bitp, data_6bitn):
+    def counter_to_freq(self, data_6bitp, data_6bitn, outfile):
+        fileOut = open(outfile, "w")
         freq_n = []
         freq_p = []
+
+        fileOut.write(str('freq_n'))
         i = 1
         while i < len(data_6bitn):
             cnt_interval = data_6bitn[i] - data_6bitn[i-1]
@@ -159,15 +165,27 @@ class Counter:
                 cnt_interval  = cnt_interval + 64
             # period = Ts * 1.0 / cnt_interval
             freq = fs * cnt_interval
+            fileOut.write(str(i)+','+str(cnt_interval))
+            fileOut.write(str('\n'))
             freq_n.append(freq)
-
+            i = i + 1
+        
+        fileOut.write(str('freq_n'))
+        i = 1
+        while i < len(data_6bitp):
             cnt_interval = data_6bitp[i] - data_6bitp[i-1]
             if (cnt_interval < 0):
                 cnt_interval  = cnt_interval + 64
             freq = fs * cnt_interval
             freq_p.append(freq)
-
+            fileOut.write(str(i)+','+str(cnt_interval))
+            fileOut.write(str('\n'))
             i = i + 1
+        
+        # fileOut.write(str(freq_p))
+        # fileOut.write(str('\n'))
+        # fileOut.write(str(freq_n))
+        fileOut.close()
         
         figure, axis = plt.subplots(1, 2) 
     
@@ -186,7 +204,7 @@ class Counter:
         # axis[1].set_ylabel('freq(Hz)')
 
         # plt.show()
-        plt.savefig("freq.png")
+        plt.savefig("freq_"+str(time_now)+".png")
 
 
 print("decoding counter mux from DUT")
@@ -196,14 +214,14 @@ if not counter.InitializeDevice():
     exit(-1)
 
 
-counter.get_counter_data(dataout, 'test.out')
-counter.flip_counter_data(dataout, 'flip.txt')
+counter.get_counter_data(dataout, "test_"+str(time_now)+".out")
+counter.flip_counter_data(dataout, "flip_"+str(time_now)+".txt")
 
 data_6bitp = []
 data_6bitn = []
-counter.decode_counter_data(dataout, data_6bitp, data_6bitn, 'counter_out_test.txt')
+counter.decode_counter_data(dataout, data_6bitp, data_6bitn, "counter_out_test_"+str(time_now)+".txt")
 # print(data_6bitn)
 # print(data_6bitp)
-counter.counter_to_freq(data_6bitp, data_6bitn)
+counter.counter_to_freq(data_6bitp, data_6bitn, "freq_"+str(time_now)+".txt")
 
         

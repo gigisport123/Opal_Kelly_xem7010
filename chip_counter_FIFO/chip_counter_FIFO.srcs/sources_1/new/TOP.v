@@ -66,6 +66,7 @@ module TOP(
     // FIFO top 
     FIFO_top U_FIFO_top(
         .rst (rst),
+        .clk_fs (clk_fs),
         .clk_2fs (clk_2fs),
         .ti_clk (ti_clk),
         .DUT_data_in (DUT_data_in_buf),

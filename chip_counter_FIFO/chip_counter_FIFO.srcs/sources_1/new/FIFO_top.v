@@ -12,6 +12,7 @@
 
 module FIFO_top (
     input wire rst,
+    input wire clk_fs,
     input wire clk_2fs,
     input wire ti_clk,
     input wire [5:0] DUT_data_in,
@@ -72,6 +73,7 @@ xil_fifo_w48_d63 U_FIFO (
 
 DUT_to_FIFO_fsm U_DUT_to_FIFO_fsm(
 //    .rst (rst),
+    .clk_fs (clk_fs),
     .clk (clk_2fs),
     .fifo_full (fifo_full),
     .wr_data_cnt (wr_data_count),

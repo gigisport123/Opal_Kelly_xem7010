@@ -11,7 +11,8 @@
 
 module DUT_to_FIFO_fsm (
 //    input wire rst,
-    input wire clk,
+    input wire clk_fs,      // fs clk feed to chip; used to distinguish p/n
+    input wire clk,         // 2fs clk; double data rate
     input wire [5:0] wr_data_cnt,
     input wire fifo_full,
     output reg write_en
@@ -22,7 +23,7 @@ module DUT_to_FIFO_fsm (
     
     always@* begin
         case (state)
-            `RESET: state_next = (fifo_full == 0) ? `FIFO_in_WRITE : `RESET;
+            `RESET: state_next = ((fifo_full == 0) && (clk_fs == 1)) ? `FIFO_in_WRITE : `RESET;
             `FIFO_in_WRITE: state_next = (fifo_full == 1) ? `FIFO_in_WAIT : `FIFO_in_WRITE;
             `FIFO_in_WAIT:  state_next = (wr_data_cnt == 0) ? `FIFO_in_WRITE : `FIFO_in_WAIT;
             default: state_next = state;

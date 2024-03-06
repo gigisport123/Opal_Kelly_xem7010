@@ -94,8 +94,8 @@ set_property PACKAGE_PIN P4 [get_ports {DUT_data_in[0]}]
 set_property PACKAGE_PIN P1 [get_ports {DUT_data_in[1]}]    
 set_property PACKAGE_PIN P6 [get_ports {DUT_data_in[2]}]   
 set_property PACKAGE_PIN P2 [get_ports {DUT_data_in[3]}]    
-set_property PACKAGE_PIN N5 [get_ports {DUT_data_in[4]}]    
-set_property PACKAGE_PIN N2 [get_ports {DUT_data_in[5]}]   
+set_property PACKAGE_PIN N4 [get_ports {DUT_data_in[4]}]    
+set_property PACKAGE_PIN M3 [get_ports {DUT_data_in[5]}]   
 set_property IOSTANDARD LVCMOS12 [get_ports {DUT_data_in[*]}]
 
 

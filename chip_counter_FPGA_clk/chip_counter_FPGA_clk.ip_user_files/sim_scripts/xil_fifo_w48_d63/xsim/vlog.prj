@@ -1,0 +1,7 @@
+verilog xil_defaultlib  \
+"../../../../chip_counter_FIFO.gen/sources_1/ip/xil_fifo_w48_d63/sim/xil_fifo_w48_d63.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

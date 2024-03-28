@@ -9,23 +9,32 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import datetime
+import os
+
+# measurement details
+IDAC = 8
+vinp = 0
+vinn = 0
+fs = 12 * 10**6  # sampling clk 
+sw = 1
+filename_str = 'rawdata_IDAC'+str(IDAC)+'_fs'+str(fs/10**6)+'_sw'+str(sw)+'_vinp'+str(vinp)+'_vinn'+str(vinn)
 
 # time stamp for dumped files
 time_now  = datetime.datetime.now().strftime('%m_%d_%Y_%H_%M_%S') 
+# file_path = "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/python/TOP_12MHz_32678.bit"
 file_path = "C:/Users/gigis/opal_kelly_code/chip_counter_FIFO/chip_counter_FIFO.runs/impl_1/TOP.bit"
 '''bit file generated from sample first; use to confirm that FrontPanel support is available.''' 
 # file_path = "C:/Users/gigis/FPGA_code/sample_first/sample_first.runs/impl_1/First.bit"    
 # M = 300        # number of pipeout data; each is 16 bits
 # N = 800        # number of counter samples; each is 6 bits
 
-# size of FIFO = 48 * 64
-FIFO_depth = 64 
+# size of FIFO = 48 * 32768
+FIFO_depth = 2**15 
+# FIFO_depth = 64
 FIFO_width = 48 
 byte_num = int(FIFO_depth * FIFO_width / 8)  
 dataout = bytearray(b'\x01') * byte_num
 
-# 10MHz sampling clock for counter output
-fs = 10 * 10**6   
 
 class Counter:
     def _init_(self):
@@ -64,8 +73,7 @@ class Counter:
         return(True)
     
     # Retrieve value on Wire endpoint with address 0x20, 0x21, 0x22
-    def get_counter_data(self, buf, outfile):
-        fileOut = open(outfile, "wb")
+    def get_counter_data(self, buf, outfile, raw=False):
         # set wire in (addr, data, mask)
         # set reset to be high
         self.xem.SetWireInValue(0x00, 0x1, 0x1)
@@ -80,12 +88,14 @@ class Counter:
                 break
   
         self.xem.ReadFromPipeOut(0xa0, buf)
-        fileOut.write(buf)
-        fileOut.close()
+        
+        if raw:
+            fileOut = open(outfile, "wb")
+            fileOut.write(buf)
+            fileOut.close()
 
     # flip the odd and even index of byte; not sure why it flips
-    def flip_counter_data(self, data, outfile):
-        fileOut = open(outfile, "wb")
+    def flip_counter_data(self, data, outfile, raw=False):
         data_swap = []
         i = 0
         while i < byte_num:
@@ -96,13 +106,16 @@ class Counter:
             data_swap.append(data[i+1])
             i = i + 2
         # fileOut.write(str(data_swap))
-        fileOut.write(data)
-        fileOut.close()
+        if raw:
+            fileOut = open(outfile, "wb")
+            fileOut.write(data)
+            fileOut.close()
 
 
     # decode data from pipeout byte into 6 bit counter output
-    def decode_counter_data(self, data, data_6bitp, data_6bitn, outfile):
-        fileOut = open(outfile, "w")
+    # raw: output raw data file 
+    # graph: output a plot of raw data
+    def decode_counter_data(self, data, data_6bitp, data_6bitn, outfile, raw=False, graph=False):
         # data_6bitp = []
         # data_6bitn = []
         # start decoding data from data[10]; 0~9 are extra datas of 0s
@@ -124,87 +137,108 @@ class Counter:
             # print(data4)
             i = i + 3
  
-        fileOut.write(str(data_6bitn))
-        fileOut.write(str('\n'))
-        fileOut.write(str(data_6bitp))
-        fileOut.close()
+        if raw:
+            fileOut = open(outfile, "w")
+            fileOut.write(str(data_6bitn))
+            fileOut.write(str('\n'))
+            fileOut.write(str(data_6bitp))
+            fileOut.close()
 
-        figure, axis = plt.subplots(1, 2) 
+        if graph:
+            figure, axis = plt.subplots(1, 2) 
   
-        # t = range(1,100) * 1.0 / fs
+            # t = range(1,100) * 1.0 / fs
 
-        # For n side
-        axis[0].plot(data_6bitn[0:100]) 
-        axis[0].set_title("n") 
-        axis[0].set_xlabel('sample #')
-        axis[0].set_ylabel('counter value')
-        
-        # For p side 
-        axis[1].plot(data_6bitp[0:100]) 
-        axis[1].set_title("p") 
-        axis[1].set_xlabel('sample #')
-        # axis[1].set_ylabel('counter value')
+            # For n side
+            axis[0].plot(data_6bitn[0:100]) 
+            axis[0].set_title("n") 
+            axis[0].set_xlabel('sample #')
+            axis[0].set_ylabel('counter value')
+            
+            # For p side 
+            axis[1].plot(data_6bitp[0:100]) 
+            axis[1].set_title("p") 
+            axis[1].set_xlabel('sample #')
+            # axis[1].set_ylabel('counter value')
 
 
-        # plt.plot(data_6bitn, color='b', label='n')
-        # plt.plot(data_6bitp, color='g', label='p')
-        # plt.legend()
-        # plt.show()
-        plt.savefig("counter_out_"+str(time_now)+".png")
+            # plt.plot(data_6bitn, color='b', label='n')
+            # plt.plot(data_6bitp, color='g', label='p')
+            # plt.legend()
+            # plt.show()
+            plt.savefig("counter_out_"+str(time_now)+".png")
 
-    def counter_to_freq(self, data_6bitp, data_6bitn, outfile):
+    def counter_to_freq(self, data_6bitp, data_6bitn, outfile, trial, graph=False):
         fileOut = open(outfile, "w")
         freq_n = []
         freq_p = []
 
-        fileOut.write(str('freq_n'))
+        # file format: sample, n, diff_n, p, diff_p
+        # fileOut.write(str('freq_n\n'))
+        fileOut.write('sample\tn\tdiff_n\tp\tdiff_p\n')
+        # initialize first line (no difference yet)
+        fileOut.write('0'+'\t'+str(data_6bitn[0])+'\t'+'\t')
+        fileOut.write(str(data_6bitp[0])+'\t'+'\t'+'\n')
         i = 1
         while i < len(data_6bitn):
+            # n side
             cnt_interval = data_6bitn[i] - data_6bitn[i-1]
             if (cnt_interval < 0):
                 cnt_interval  = cnt_interval + 64
             # period = Ts * 1.0 / cnt_interval
             freq = fs * cnt_interval
-            fileOut.write(str(i)+','+str(cnt_interval))
-            fileOut.write(str('\n'))
+            fileOut.write(str(i)+'\t'+str(data_6bitn[i])+'\t'+str(cnt_interval)+'\t')
             freq_n.append(freq)
-            i = i + 1
-        
-        fileOut.write(str('freq_n'))
-        i = 1
-        while i < len(data_6bitp):
+           
+            # p side
             cnt_interval = data_6bitp[i] - data_6bitp[i-1]
             if (cnt_interval < 0):
                 cnt_interval  = cnt_interval + 64
             freq = fs * cnt_interval
             freq_p.append(freq)
-            fileOut.write(str(i)+','+str(cnt_interval))
-            fileOut.write(str('\n'))
+            fileOut.write(str(data_6bitp[i])+'\t'+str(cnt_interval)+'\n')
             i = i + 1
+        
+        # fileOut.write(str('freq_p\n'))
+        # i = 1
+        # while i < len(data_6bitp):
+        #     cnt_interval = data_6bitp[i] - data_6bitp[i-1]
+        #     if (cnt_interval < 0):
+        #         cnt_interval  = cnt_interval + 64
+        #     freq = fs * cnt_interval
+        #     freq_p.append(freq)
+        #     fileOut.write(str(i)+'\t'+str(data_6bitp[i])+'\t'+str(data_6bitp[i-1])+'\t'+str(cnt_interval))
+        #     fileOut.write(str('\n'))
+        #     i = i + 1
         
         # fileOut.write(str(freq_p))
         # fileOut.write(str('\n'))
         # fileOut.write(str(freq_n))
+        avg_p = sum(freq_p) / len(freq_p)
+        avg_n = sum(freq_n) / len(freq_n)
+        fileOut.write('freq_P_avg\t'+str(avg_p)+'\n')
+        fileOut.write('freq_N_avg\t'+str(avg_n)+'\n')
         fileOut.close()
         
-        figure, axis = plt.subplots(1, 2) 
-    
-        t = np.arange(0,len(freq_n)) * 1.0 / fs
-
-        # For n side
-        axis[0].plot(t, freq_n) 
-        axis[0].set_title("n") 
-        axis[0].set_xlabel('time (s)')
-        axis[0].set_ylabel('osc freq (Hz)')
+        if graph:
+            figure, axis = plt.subplots(1, 2) 
         
-        # For p side 
-        axis[1].plot(t, freq_p) 
-        axis[1].set_title("p") 
-        axis[1].set_xlabel('time (s)')
-        # axis[1].set_ylabel('freq(Hz)')
+            t = np.arange(0,len(freq_n)) * 1.0 / fs
 
-        # plt.show()
-        plt.savefig("freq_"+str(time_now)+".png")
+            # For n side
+            axis[0].plot(t[1:255], freq_n[1:255]) 
+            axis[0].set_title("n") 
+            axis[0].set_xlabel('time (s)')
+            axis[0].set_ylabel('osc freq (Hz)')
+            
+            # For p side 
+            axis[1].plot(t[1:255], freq_p[1:255]) 
+            axis[1].set_title("p") 
+            axis[1].set_xlabel('time (s)')
+            # axis[1].set_ylabel('freq(Hz)')
+
+            # plt.show()
+            plt.savefig('./'+filename_str+'./'+"freq_"+str(time_now)+str(trial)+".png")
 
 
 print("decoding counter mux from DUT")
@@ -213,15 +247,18 @@ counter = Counter()
 if not counter.InitializeDevice():
     exit(-1)
 
+if not os.path.isdir('./'+filename_str):
+    os.makedirs('./'+filename_str)
 
-counter.get_counter_data(dataout, "test_"+str(time_now)+".out")
-counter.flip_counter_data(dataout, "flip_"+str(time_now)+".txt")
+for trial in range(1):
+    counter.get_counter_data(dataout, './'+filename_str+'./'+"test_"+str(time_now)+".out", raw=True)
+    counter.flip_counter_data(dataout, './'+filename_str+'./'+"flip_"+str(time_now)+".txt", raw=True)
 
-data_6bitp = []
-data_6bitn = []
-counter.decode_counter_data(dataout, data_6bitp, data_6bitn, "counter_out_test_"+str(time_now)+".txt")
-# print(data_6bitn)
-# print(data_6bitp)
-counter.counter_to_freq(data_6bitp, data_6bitn, "freq_"+str(time_now)+".txt")
+    data_6bitp = []
+    data_6bitn = []
+    counter.decode_counter_data(dataout, data_6bitp, data_6bitn, './'+filename_str+"counter_out_test_"+str(time_now)+".txt")
+    # print(data_6bitn)
+    # print(data_6bitp)
+    counter.counter_to_freq(data_6bitp, data_6bitn, './'+filename_str+'./'+filename_str+'_trial_'+str(trial)+".txt", trial=str(trial), graph=True)
 
         
